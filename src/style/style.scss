@@ -1,0 +1,354 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+::-webkit-scrollbar {
+  width: 10px;
+  margin: 0 10px 0 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgray;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+$black: #111;
+$white: #fff;
+$blue: #0064d2;
+$lightBlue: #CCE0F6;
+$red: #ff2d2d;
+$grey: #777;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: $black;
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 1900px) {
+    @content;
+  }
+}
+
+.container {
+  width: 90%;
+  margin: 3rem auto 0 auto;
+  @include tablet {
+    width: 80%;
+    max-width: 768px;
+    background-color: $white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 24px rgba($color: $black, $alpha: 0.3);
+  }
+  @include laptop {
+    width: 70%;
+    max-width: 1200px;
+  }
+  @include desktop {
+    max-width: 1900px;
+  }
+}
+
+.title {
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  h1 {
+    margin: 0 0 2rem 0;
+    font-size: 1.8rem;
+  }
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  @include tablet {
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.addTaskWrapper {
+  padding: 50px 0;
+  width: 100%;
+  h1 {
+    margin: 0 0 1.5rem 0;
+  }
+}
+
+.inputBox {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  @include tablet {
+    width: 40%;
+  }
+  @include laptop {
+    width: 40%;
+  }
+}
+
+.label {
+  width: 100%;
+  font-size: 0.866rem;
+  color: $grey;
+  margin: 0 0 0.5rem 0;
+}
+
+.input {
+  width: 100%;
+  height: 60px;
+  font-size: 1rem;
+  padding: 1rem 0.9rem;
+  margin: 0 0 1rem 0;
+  border-radius: 0.3rem;
+  border: 1.6px solid $grey;
+  outline: none;
+  transition: 500ms ease;
+  @include tablet {
+    margin: 0;
+  }
+}
+
+.input:hover {
+  box-shadow: 0px 4px 24px $lightBlue;
+  border: 1.6px solid $lightBlue;
+}
+
+.input:focus {
+  box-shadow: 0px 4px 24px $lightBlue;
+  border: 1.6px solid $blue;
+  font-weight: 500;
+}
+
+.button {
+  width: 100%;
+  height: 60px;
+  margin: 1rem 0 0 0;
+  padding: 1.1rem 2.2rem;
+  background: $blue;
+  color: $white;
+  font-weight: 600;
+  border-radius: 0.4rem;
+  outline: none;
+  border: none;
+  box-shadow: 0px 4px 24px $lightBlue;
+  transition: 500ms ease;
+  @include tablet {
+    width: auto;
+    margin: 0;
+  }
+}
+
+.button:hover {
+  box-shadow: 0px 4px 24px $lightBlue;
+  transform: scale(0.9);
+  cursor: pointer;
+}
+
+.taskListWrapper {
+  width: 100%;
+  h1 {
+    margin: 0 0 1rem 0;
+  }
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 1rem 0;
+  select {
+    font-weight: 600;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+.listContainer {
+  width: 100%;
+  height: 30rem;
+  overflow: auto;
+}
+
+.todo-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  padding: 1.2rem;
+  margin: 0 0 1rem 0;
+  border-radius: 8px;
+  border: 1px solid rgba($color: $black, $alpha: 0.2);
+}
+
+.handle {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  margin: 0;
+  .line-1,
+  .line-2 {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: $black;
+  }
+  .line-2 {
+    margin-top: 6px;
+  }
+}
+
+.handle > * {
+  margin: 0;
+}
+
+.completed {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100px;
+  border: 2px solid $black;
+  cursor: pointer;
+  &:hover {
+    background-color: $lightBlue;
+    border: 2px solid $blue;
+  }
+}
+
+.true {
+  background-color: $blue;
+  border: 2px solid $blue;
+  &:hover {
+    background-color: $white;
+    border: 2px solid $white;
+  }
+}
+
+.todo-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  @include tablet {
+    width: 80%;
+  }
+}
+
+.todo-name {
+  max-width: 85%;
+  h1 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  p {
+    color: $grey;
+    font-size: 1rem;
+  }
+  @include tablet {
+    width: 90%;
+  }
+}
+
+.option-item {
+  width: 10%;
+  background-color: $white;
+  font-size: 1.4rem;
+  margin: 0 0 0 1rem;
+  border: none;
+  cursor: pointer;
+  @include tablet {
+    font-size: 1.9rem;
+  }
+}
+
+.todo-completed {
+  color: $blue;
+  background-color: $lightBlue;
+  border: 1px solid $blue;
+  h1, p {
+    color: $blue;
+  }
+  .line-1, .line-2 {
+    background-color: $blue;
+  }
+  .option-item {
+    background-color: $lightBlue;
+  }
+}
+
+.d-none {
+  display: none;
+}
+
+.footer {
+  padding: 1.2rem 0;
+  text-align: center;
+  font-size: 0.766rem;
+  color: $black;
+}
+
+.notice-button {
+  position: absolute;
+  top: 0.4rem;
+  right: 1rem;
+  font-size: 24px;
+  padding: 0.5rem;
+  background-color: $white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.notice-modal {
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 15px;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: $lightBlue;
+  display: flex;
+  @include tablet {
+    width: 20rem;
+  }
+}
+
+.modal-icon > * {
+  margin-top: 7px;
+  font-size: 24px;
+}
+
+.modal-text {
+  margin-left: 1rem;
+  h1 {
+    font-size: 1.4rem;
+  }
+}
