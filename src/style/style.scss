@@ -251,9 +251,9 @@ $grey: #777;
 .todo-details {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   @include tablet {
+    justify-content: space-between;
     width: 80%;
   }
 }

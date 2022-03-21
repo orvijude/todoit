@@ -14,7 +14,6 @@ const TodoList = ({
   filterStatus,
   filterDate,
 }) => {
-  const [style, setStyle] = useState("");
 
   return (
     <>
